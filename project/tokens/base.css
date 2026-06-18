@@ -1,0 +1,55 @@
+/* ───────────────────────────────────────────────────────────────────────
+   coss.com — base layer
+   Sensible resets + the brand's default body styling. Surfaces sit on the
+   --sidebar tone; text is --foreground; code defaults to the mono family.
+   ─────────────────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--sidebar);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+}
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+}
+
+/* Active-press feedback used across coss buttons & links on touch */
+a:active,
+button:active {
+  opacity: 0.72;
+}
+@media (min-width: 768px) {
+  a:active,
+  button:active {
+    opacity: 1;
+  }
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--primary) 16%, transparent);
+}

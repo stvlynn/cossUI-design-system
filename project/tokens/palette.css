@@ -1,0 +1,46 @@
+/* ───────────────────────────────────────────────────────────────────────
+   coss.com — raw palette
+   The design system is built on the Tailwind v4 default palette. Only the
+   shades actually referenced by coss semantic tokens are declared here,
+   resolved to their oklch values so consumers ship plain CSS.
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Neutral — the spine of the system (primary, surfaces, text) */
+  --color-neutral-50:  oklch(0.985 0 0);
+  --color-neutral-100: oklch(0.970 0 0);
+  --color-neutral-200: oklch(0.922 0 0);
+  --color-neutral-300: oklch(0.870 0 0);
+  --color-neutral-400: oklch(0.708 0 0);
+  --color-neutral-500: oklch(0.556 0 0);
+  --color-neutral-600: oklch(0.439 0 0);
+  --color-neutral-700: oklch(0.371 0 0);
+  --color-neutral-800: oklch(0.269 0 0);
+  --color-neutral-900: oklch(0.205 0 0);
+  --color-neutral-950: oklch(0.145 0 0);
+
+  /* Semantic accents */
+  --color-red-400:     oklch(0.704 0.191 22.216);
+  --color-red-500:     oklch(0.637 0.237 25.331);
+  --color-red-700:     oklch(0.505 0.213 27.518);
+  --color-blue-400:    oklch(0.707 0.165 254.624);
+  --color-blue-500:    oklch(0.623 0.214 259.815);
+  --color-blue-700:    oklch(0.488 0.243 264.376);
+  --color-emerald-400: oklch(0.765 0.177 163.223);
+  --color-emerald-500: oklch(0.696 0.170 162.480);
+  --color-emerald-700: oklch(0.508 0.118 165.612);
+  --color-amber-400:   oklch(0.828 0.189 84.429);
+  --color-amber-500:   oklch(0.769 0.188 70.080);
+  --color-amber-700:   oklch(0.555 0.163 48.998);
+
+  /* Chart / illustration accents */
+  --color-orange-500:  oklch(0.705 0.213 47.604);
+  --color-orange-600:  oklch(0.646 0.222 41.116);
+  --color-teal-600:    oklch(0.600 0.118 184.704);
+  --color-cyan-900:    oklch(0.398 0.070 227.392);
+  --color-purple-500:  oklch(0.627 0.265 303.900);
+  --color-rose-500:    oklch(0.645 0.246 16.439);
+}

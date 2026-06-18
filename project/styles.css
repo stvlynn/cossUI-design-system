@@ -1,0 +1,12 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   coss.com Design System — global entry point
+   Link THIS file. Everything below is shipped to consumers.
+   "open source, open heart, open mind."
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@import "./tokens/fonts.css";
+@import "./tokens/palette.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/base.css";

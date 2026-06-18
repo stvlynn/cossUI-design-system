@@ -1,0 +1,36 @@
+/* ───────────────────────────────────────────────────────────────────────
+   coss.com — typography
+   Three families: Cal Sans (display/heading), Cal Sans UI (body/ui),
+   Paper Mono (code & technical detail). The product voice is lowercase and
+   geometric; headings use the rounded Cal Sans display cut.
+   ─────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --font-sans: "Cal Sans UI", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: "Cal Sans", "Cal Sans UI", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Paper Mono", ui-monospace, "SF Mono", "Cascadia Code",
+    "Roboto Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* Type scale (Tailwind-derived, used across coss surfaces) */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+}

@@ -1,0 +1,21 @@
+<!-- @dsCard group="Colors" viewport="700x210" name="Surfaces & lines" subtitle="sidebar, background, card, popover, muted, border" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:var(--background);}
+  .wrap{padding:28px 30px;font-family:var(--font-mono);display:grid;
+    grid-template-columns:repeat(3,1fr);gap:14px;}
+  .sw{border-radius:var(--radius-lg);height:74px;border:1px solid var(--border);
+    display:flex;align-items:flex-end;padding:8px 10px;font-size:10px;color:var(--foreground);}
+  .name{display:flex;flex-direction:column;gap:1px;}
+  .name small{color:var(--muted-foreground);}
+</style></head>
+<body><div class="wrap">
+  <div class="sw" style="background:var(--sidebar)"><div class="name">sidebar<small>page base</small></div></div>
+  <div class="sw" style="background:var(--background)"><div class="name">background<small>white</small></div></div>
+  <div class="sw" style="background:var(--card)"><div class="name">card<small>white</small></div></div>
+  <div class="sw" style="background:var(--popover)"><div class="name">popover<small>white</small></div></div>
+  <div class="sw" style="background:var(--muted)"><div class="name">muted<small>black 4%</small></div></div>
+  <div class="sw" style="background:var(--background);border:2px solid var(--border)"><div class="name">border<small>black 8%</small></div></div>
+</div></body></html>

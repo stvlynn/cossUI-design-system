@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Neutral ramp" subtitle="The monochrome spine — primary, text & surfaces all derive here" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:var(--background);}
+  .wrap{padding:28px 30px;font-family:var(--font-mono);}
+  .ramp{display:flex;gap:0;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);}
+  .sw{flex:1;height:64px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5px;font-size:9px;}
+  .lo{color:var(--color-neutral-800);} .hi{color:var(--color-neutral-50);}
+  .meta{font-size:11px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em;margin-top:14px;}
+</style></head>
+<body><div class="wrap">
+  <div class="ramp">
+    <div class="sw lo" style="background:var(--color-neutral-50)">50</div>
+    <div class="sw lo" style="background:var(--color-neutral-100)">100</div>
+    <div class="sw lo" style="background:var(--color-neutral-200)">200</div>
+    <div class="sw lo" style="background:var(--color-neutral-300)">300</div>
+    <div class="sw lo" style="background:var(--color-neutral-400)">400</div>
+    <div class="sw hi" style="background:var(--color-neutral-500)">500</div>
+    <div class="sw hi" style="background:var(--color-neutral-600)">600</div>
+    <div class="sw hi" style="background:var(--color-neutral-700)">700</div>
+    <div class="sw hi" style="background:var(--color-neutral-800)">800</div>
+    <div class="sw hi" style="background:var(--color-neutral-900)">900</div>
+    <div class="sw hi" style="background:var(--color-neutral-950)">950</div>
+  </div>
+  <div class="meta">--primary = neutral-800 · --foreground = neutral-800 · --ring = neutral-400</div>
+</div></body></html>

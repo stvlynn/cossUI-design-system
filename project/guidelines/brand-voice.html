@@ -1,0 +1,22 @@
+<!-- @dsCard group="Brand" viewport="700x250" name="Voice & Signature highlight" subtitle="Lowercase letters; rotated colored highlight motif" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:var(--background);}
+  .wrap{padding:30px 32px;font-family:var(--font-heading);color:var(--foreground);}
+  .hero{font-size:34px;line-height:1.15;}
+  .hl{position:relative;z-index:1;}
+  .hl::before{content:"";position:absolute;inset:0 -4px;z-index:-1;transform:rotate(-1deg);
+    background:linear-gradient(to right,var(--color-blue-500),var(--color-purple-500),var(--color-orange-500));
+    opacity:.16;mix-blend-mode:hard-light;}
+  .tag{font-family:var(--font-sans);font-size:15px;color:var(--muted-foreground);margin-top:20px;line-height:1.6;}
+  .tag b{color:var(--foreground);font-weight:500;}
+  .foot{font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);
+    text-transform:uppercase;letter-spacing:.05em;margin-top:18px;}
+</style></head>
+<body><div class="wrap">
+  <div class="hero">the <span class="hl">everything but AI</span> company.</div>
+  <div class="tag"><b>dear friend,</b> we write in lowercase. earnest, plain-spoken, second-person. open source, open heart, open mind.</div>
+  <div class="foot">highlight = blue→purple→orange · 16% · hard-light · rotate −1°</div>
+</div></body></html>

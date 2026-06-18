@@ -1,0 +1,24 @@
+<!-- @dsCard group="Colors" viewport="700x200" name="Semantic accents" subtitle="destructive · info · success · warning — solid & 8% tint" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:var(--background);}
+  .wrap{padding:26px 30px;font-family:var(--font-mono);display:grid;
+    grid-template-columns:repeat(4,1fr);gap:14px;}
+  .col{display:flex;flex-direction:column;gap:8px;}
+  .solid{height:48px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;}
+  .tint{height:34px;border-radius:var(--radius-md);display:flex;align-items:center;padding-left:10px;font-size:10px;}
+  .cap{font-size:10px;color:var(--muted-foreground);}
+</style></head>
+<body><div class="wrap">
+  <div class="col"><div class="solid" style="background:var(--destructive)">destructive</div>
+    <div class="tint" style="background:color-mix(in srgb,var(--destructive) 8%,transparent);color:var(--destructive-foreground)">8% tint</div><div class="cap">red-500</div></div>
+  <div class="col"><div class="solid" style="background:var(--info)">info</div>
+    <div class="tint" style="background:color-mix(in srgb,var(--info) 8%,transparent);color:var(--info-foreground)">8% tint</div><div class="cap">blue-500</div></div>
+  <div class="col"><div class="solid" style="background:var(--success)">success</div>
+    <div class="tint" style="background:color-mix(in srgb,var(--success) 8%,transparent);color:var(--success-foreground)">8% tint</div><div class="cap">emerald-500</div></div>
+  <div class="col"><div class="solid" style="background:var(--warning)">warning</div>
+    <div class="tint" style="background:color-mix(in srgb,var(--warning) 8%,transparent);color:var(--warning-foreground)">8% tint</div><div class="cap">amber-500</div></div>
+</div></body></html>

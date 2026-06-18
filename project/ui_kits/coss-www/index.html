@@ -1,0 +1,96 @@
+<!-- @dsCard group="coss.com www" viewport="1280x760" name="coss.com — marketing site" subtitle="The 'dear friend' letter homepage + product API docs" -->
+<!-- @startingPoint section="coss.com www" subtitle="Marketing site: letter homepage + API docs" viewport="1280x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>coss.com — the everything but AI company</title>
+<link rel="icon" href="../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; background: var(--sidebar); color: var(--foreground); }
+  #root { min-height: 100vh; }
+  .container { max-width: 1416px; margin: 0 auto; padding-inline: 24px; width: 100%; box-sizing: border-box; }
+
+  /* App frame: header / main / footer */
+  .frame { position: relative; isolation: isolate; display: flex; flex-direction: column; min-height: 100vh; --header-height: 4rem; overflow: clip; }
+
+  /* Vertical container guide lines + corner squares (signature motif) */
+  .guides { position: absolute; inset: 0; z-index: 45; pointer-events: none; }
+  .guides .gline { position: absolute; inset: 0; max-width: 1416px; margin: 0 auto; }
+  .guides .gline::before, .guides .gline::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px;
+    background: color-mix(in srgb, var(--border) 64%, transparent); }
+  .guides .gline::before { left: 12px; } .guides .gline::after { right: 12px; }
+  .corner { position: absolute; top: calc(var(--header-height) - 4.5px); width: 8px; height: 8px; border-radius: 2px;
+    border: 1px solid var(--border); background: var(--popover); box-shadow: var(--shadow-xs); }
+
+  header.site { position: sticky; top: 0; z-index: 40; width: 100%;
+    background: color-mix(in srgb, var(--sidebar) 80%, transparent); backdrop-filter: blur(6px);
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 64%, transparent); }
+  header.site .inner { display: flex; height: var(--header-height); align-items: center; justify-content: space-between; gap: 8px; }
+  .brand { display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 26px; line-height: 1; }
+  .brand a { color: var(--foreground); text-decoration: none; }
+  .brand .plabel { color: color-mix(in srgb, var(--muted-foreground) 64%, transparent); cursor: pointer; position: relative; }
+  .hactions { display: flex; align-items: center; gap: 8px; }
+  .iconbtn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
+    border-radius: var(--radius-lg); border: 1px solid transparent; background: transparent; color: var(--foreground); cursor: pointer; }
+  .iconbtn:hover { background: var(--accent); }
+  .iconbtn svg { width: 18px; height: 18px; opacity: .8; }
+
+  /* Products menu */
+  .menu { position: absolute; top: 40px; left: 50%; transform: translateX(-50%); z-index: 60; min-width: 180px;
+    background: var(--popover); border: 1px solid var(--border); border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md); padding: 5px; display: none; }
+  .menu.open { display: block; }
+  .menu .mi { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 7px 9px;
+    border-radius: var(--radius-md); font-family: var(--font-heading); font-size: 16px; color: var(--muted-foreground); cursor: pointer; }
+  .menu .mi:hover { background: var(--accent); color: var(--foreground); }
+
+  main.site { flex: 1; padding-bottom: 64px; }
+  .pagehead { padding: 56px 0 40px; text-align: center; }
+  .pagehead h1 { font-family: var(--font-heading); font-size: 48px; line-height: 1.05; max-width: 16ch; margin: 0 auto; }
+  .hl { position: relative; z-index: 1; }
+  .hl::before { content: ""; position: absolute; inset: 0 -4px; z-index: -1; transform: rotate(-1deg);
+    background: linear-gradient(to right, var(--color-blue-500), var(--color-purple-500), var(--color-orange-500));
+    opacity: .16; mix-blend-mode: hard-light; }
+
+  .prose { max-width: 42rem; margin: 0 auto; color: var(--muted-foreground); font-size: 16px; }
+  .prose p { margin: 24px 0 0; line-height: 1.7; }
+  .prose strong { color: var(--foreground); font-weight: 500; }
+  .prose a { color: var(--foreground); text-underline-offset: 4px; }
+  .ichip { position: relative; z-index: 1; display: inline-block; padding: 2px 7px; font-family: var(--font-mono);
+    font-size: 13px; color: var(--primary-foreground); }
+  .ichip::before { content: ""; position: absolute; inset: 0; z-index: -1; transform: rotate(-1deg);
+    border-radius: var(--radius-xs); background: var(--primary); }
+  .ichip.muted { color: var(--foreground); } .ichip.muted::before { background: var(--muted); }
+
+  .codeblock { margin-top: 24px; border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; background: var(--code); }
+  .codeblock .title { padding: 10px 16px; border-bottom: 1px solid color-mix(in srgb, var(--border) 64%, transparent);
+    font-family: var(--font-mono); font-size: 13px; color: var(--muted-foreground); }
+  .codeblock pre { margin: 0; padding: 16px; font-family: var(--font-mono); font-size: 13px; line-height: 1.7;
+    color: var(--foreground); overflow-x: auto; }
+  .tok-key { color: var(--foreground); } .tok-str { color: var(--success-foreground); } .tok-com { color: var(--muted-foreground); }
+
+  h2.doc { font-family: var(--font-heading); font-weight: 600; font-size: 24px; color: var(--foreground); margin: 48px 0 0; }
+  h2.doc:first-child { margin-top: 0; }
+  .doc + .codeblock { margin-top: 16px; }
+  .lead { max-width: 42rem; margin: 0 auto 0; }
+
+  .cta { display: flex; justify-content: center; gap: 8px; margin-top: 48px; }
+
+  footer.site { position: relative; margin-top: 32px; padding: 24px 0; color: var(--muted-foreground);
+    border-top: 1px solid color-mix(in srgb, var(--border) 64%, transparent); }
+  footer.site .inner { display: flex; justify-content: center; gap: 8px; font-size: 14px; }
+  footer.site .fmark { font-family: var(--font-heading); font-size: 18px; color: var(--foreground); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

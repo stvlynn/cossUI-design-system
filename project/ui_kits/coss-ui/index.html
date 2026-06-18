@@ -1,0 +1,72 @@
+<!-- @dsCard group="coss ui docs" viewport="1280x820" name="coss ui — component docs" subtitle="Docs site: sidebar nav + live component preview & code" -->
+<!-- @startingPoint section="coss ui docs" subtitle="Component docs page with sidebar + preview/code tabs" viewport="1280x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>coss ui — components</title>
+<link rel="icon" href="../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; background: var(--sidebar); color: var(--foreground); }
+  #root { min-height: 100vh; }
+  .container { max-width: 1416px; margin: 0 auto; padding-inline: 24px; width: 100%; box-sizing: border-box; }
+  .frame { display: flex; flex-direction: column; min-height: 100vh; --header-height: 4rem; }
+
+  header.site { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--sidebar) 80%, transparent);
+    backdrop-filter: blur(6px); border-bottom: 1px solid color-mix(in srgb, var(--border) 64%, transparent); }
+  header.site .inner { display: flex; height: var(--header-height); align-items: center; justify-content: space-between; gap: 8px; }
+  .brand { display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 26px; line-height: 1; }
+  .brand a { color: var(--foreground); text-decoration: none; }
+  .brand .plabel { color: color-mix(in srgb, var(--muted-foreground) 64%, transparent); }
+  .hnav { display: flex; align-items: center; gap: 4px; margin-left: 20px; }
+  .hnav a { font-size: 14px; color: var(--muted-foreground); text-decoration: none; padding: 6px 10px; border-radius: var(--radius-md); }
+  .hnav a:hover, .hnav a.on { color: var(--foreground); }
+  .hactions { display: flex; align-items: center; gap: 8px; }
+  .iconbtn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
+    border-radius: var(--radius-lg); border: 1px solid transparent; background: transparent; color: var(--foreground); cursor: pointer; }
+  .iconbtn:hover { background: var(--accent); }
+  .iconbtn svg { width: 18px; height: 18px; opacity: .8; }
+
+  .body { flex: 1; display: grid; grid-template-columns: 240px 1fr; gap: 32px; align-items: start; padding-block: 28px; }
+  aside { position: sticky; top: calc(var(--header-height) + 28px); display: flex; flex-direction: column; gap: 18px; }
+  .navgroup .gh { font-size: 12px; font-weight: 600; color: var(--foreground); padding: 0 8px 6px; }
+  .navgroup a { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 8px; border-radius: var(--radius-md);
+    font-size: 14px; color: var(--muted-foreground); text-decoration: none; cursor: pointer; }
+  .navgroup a:hover { color: var(--foreground); background: var(--accent); }
+  .navgroup a.on { color: var(--foreground); background: var(--secondary); font-weight: 500; }
+
+  main.doc { min-width: 0; max-width: 760px; }
+  .crumb { font-size: 13px; color: var(--muted-foreground); display: flex; gap: 6px; align-items: center; }
+  .crumb b { color: var(--foreground); font-weight: 500; }
+  main.doc h1 { font-family: var(--font-heading); font-size: 36px; margin: 14px 0 0; }
+  main.doc .desc { color: var(--muted-foreground); font-size: 17px; line-height: 1.6; margin-top: 10px; max-width: 60ch; }
+
+  .preview-shell { margin-top: 28px; border: 1px solid var(--border); border-radius: var(--radius-2xl); overflow: hidden; background: var(--card);
+    box-shadow: var(--shadow-xs); }
+  .preview-bar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 64%, transparent); }
+  .preview-canvas { min-height: 220px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; padding: 40px;
+    background: color-mix(in srgb, var(--card), var(--sidebar)); }
+  pre.code { margin: 0; padding: 18px 20px; font-family: var(--font-mono); font-size: 13px; line-height: 1.7; color: var(--foreground);
+    background: var(--code); overflow-x: auto; }
+  .tok-key { color: var(--info-foreground); } .tok-str { color: var(--success-foreground); } .tok-tag { color: var(--foreground); font-weight: 500; }
+
+  .section-h { font-family: var(--font-heading); font-size: 22px; margin: 44px 0 4px; }
+  .section-sub { color: var(--muted-foreground); font-size: 14px; margin-bottom: 14px; }
+  .variant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .variant-cell { border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 22px; display: flex; flex-direction: column;
+    align-items: center; gap: 12px; background: var(--card); }
+  .variant-cell .vl { font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!-- @dsCard group="Brand" viewport="700x180" name="Wordmark" subtitle="coss.com set in Cal Sans — lowercase, always" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:var(--background);}
+  .wrap{padding:34px 32px;display:flex;flex-direction:column;gap:18px;}
+  .mark{font-family:var(--font-heading);font-size:40px;color:var(--foreground);display:flex;align-items:center;gap:10px;}
+  .mark .sub{color:color-mix(in srgb,var(--muted-foreground) 64%,transparent);}
+  .inv{background:var(--primary);color:var(--primary-foreground);padding:14px 18px;
+    border-radius:var(--radius-xl);font-family:var(--font-heading);font-size:28px;width:fit-content;}
+  .meta{font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);
+    text-transform:uppercase;letter-spacing:.05em;}
+</style></head>
+<body><div class="wrap">
+  <div class="mark">coss.com <span class="sub">ui</span></div>
+  <div class="inv">coss.com</div>
+  <div class="meta">Cal Sans · lowercase · product label in muted/64%</div>
+</div></body></html>
